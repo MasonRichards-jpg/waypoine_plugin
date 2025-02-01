@@ -1,0 +1,18 @@
+name: waypoine_plugin
+version: '1.0-SNAPSHOT'
+main: me.richardsm.waypoine_plugin.Waypoine_plugin
+api-version: '1.21'
+commands:
+  setwaypoint:
+    description: Sets a waypoint at your current location.
+    usage: /setwaypoint <name>
+  removeWaypoint:
+    description: Removes a waypoint by name.
+    usage: /removeWaypoint <name>
+  listwaypoints:
+    description: Lists all waypoints for the player.
+    usage: /listwaypoints
+permissions:
+  waypointplugin.use:
+    description: Allows the player to use the waypoint commands
+    default: true
