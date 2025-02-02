@@ -119,4 +119,16 @@ public class Database {
             e.printStackTrace();
         }
     }
+    public void deleteAllWaypoints(String uuid) {
+        try {
+            String query = "DELETE FROM waypoints WHERE player_uuid = ?";  // SQL query to delete all waypoints for this UUID
+            try (PreparedStatement stmt = connection.prepareStatement(query)) {
+                stmt.setString(1, uuid);  // Bind the player's UUID
+                int rowsAffected = stmt.executeUpdate();  // Execute the deletion query
+                System.out.println(rowsAffected + " waypoints removed for player UUID: " + uuid);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();  // Handle any SQL exceptions
+        }
+    }
 }

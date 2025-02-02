@@ -1,5 +1,9 @@
 package me.richardsm.waypoine_plugin;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
+
 public class Waypoint {
     private String name;
     private String world;
@@ -32,5 +36,12 @@ public class Waypoint {
 
     public double getZ() {
         return z;
+    }
+    public Location toLocation() {
+        World bukkitWorld = Bukkit.getWorld(world); // Get the World object by name
+        if (bukkitWorld == null) {
+            throw new IllegalStateException("World '" + world + "' is not loaded!");
+        }
+        return new Location(bukkitWorld, x, y, z); // Create and return the Location
     }
 }
