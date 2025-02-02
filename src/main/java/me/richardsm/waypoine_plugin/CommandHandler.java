@@ -93,6 +93,7 @@ public class CommandHandler {
                         player.sendActionBar(new TextComponent("§aYou have reached your destination!"));
                         this.cancel();
                         navigationTasks.remove(player);
+                        player.setCompassTarget(player.getWorld().getSpawnLocation());
                         return;
                     }
 
